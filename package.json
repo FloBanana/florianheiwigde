@@ -1,0 +1,23 @@
+{
+    "name": "florianheiwigde",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "postinstall": "bower install",
+
+        "prestart": "npm install && npm run build-css",
+        "start": "http-server -a localhost -p 8000 -c-1 ./public",
+
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "build-css": "node-sass --include-path scss scss/main.scss   public/css/main.css",
+        "watch-css": "nodemon -e scss -x \"npm run build-css\""
+    },
+    "author": "",
+    "license": "ISC",
+    "devDependencies": {
+        "bunyan": "^1.8.1",
+        "node-sass": "^3.8.0",
+        "nodemon": "^1.9.2"
+    }
+}
