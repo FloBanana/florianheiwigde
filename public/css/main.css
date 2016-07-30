@@ -134,7 +134,7 @@ body {
           position: absolute;
           content: " ";
           width: 3px;
-          background-color: #eee;
+          background-color: rgba(80, 80, 80, 0.15);
           left: 50%;
           margin-left: -1.5px; }
         body #fh-timeline-wrapper .container .timeline > li {
@@ -150,7 +150,7 @@ body {
             display: table; }
           body #fh-timeline-wrapper .container .timeline > li.timeline-inverted .tl-circ {
             background: #AE5D44;
-            border: 3px solid #FB8762; }
+            box-shadow: 0 0 0 4px #FB8762, inset 0 2px 0 rgba(0, 0, 0, 0.08), 0 3px 0 4px rgba(0, 0, 0, 0.05); }
           body #fh-timeline-wrapper .container .timeline > li.timeline-inverted .timeline-panel {
             float: right; }
             body #fh-timeline-wrapper .container .timeline > li.timeline-inverted .timeline-panel::before {
@@ -179,26 +179,11 @@ body {
           body #fh-timeline-wrapper .container .timeline > li .timeline-panel {
             width: 46%;
             float: left;
-            background: #fff;
-            border: 1px solid #d4d4d4;
+            background: white;
             padding: 20px;
             position: relative;
-            -webkit-border-radius: 8px;
-            -moz-border-radius: 8px;
-            border-radius: 8px;
-            -webkit-box-shadow: 0 1px 6px rgba(0, 0, 0, 0.15);
-            -moz-box-shadow: 0 1px 6px rgba(0, 0, 0, 0.15);
-            box-shadow: 0 1px 6px rgba(0, 0, 0, 0.15); }
-            body #fh-timeline-wrapper .container .timeline > li .timeline-panel::before {
-              position: absolute;
-              top: 26px;
-              right: -15px;
-              display: inline-block;
-              border-top: 15px solid transparent;
-              border-left: 15px solid #ccc;
-              border-right: 0 solid #ccc;
-              border-bottom: 15px solid transparent;
-              content: " "; }
+            border-radius: 0.25em;
+            box-shadow: 0 3px 0 rgba(80, 80, 80, 0.15); }
             body #fh-timeline-wrapper .container .timeline > li .timeline-panel::after {
               position: absolute;
               top: 27px;
@@ -234,20 +219,21 @@ body {
           body #fh-timeline-wrapper .container .timeline > li .tl-circ {
             position: absolute;
             top: 23px;
-            left: 50%;
+            left: 49.7%;
             text-align: center;
             background: #6a8db3;
             color: #fff;
-            width: 35px;
-            height: 35px;
+            width: 40px;
+            height: 40px;
             line-height: 35px;
             margin-left: -16px;
-            border: 3px solid #90acc7;
-            border-top-right-radius: 50%;
-            border-top-left-radius: 50%;
-            border-bottom-right-radius: 50%;
-            border-bottom-left-radius: 50%;
+            border-radius: 50%;
+            box-shadow: 0 0 0 4px #90acc7, inset 0 2px 0 rgba(0, 0, 0, 0.08), 0 3px 0 4px rgba(0, 0, 0, 0.05);
             z-index: 99999; }
+            body #fh-timeline-wrapper .container .timeline > li .tl-circ span {
+              padding-top: 11px;
+              display: inline-block;
+              font-size: 17px; }
   body #fh-contact-wrapper {
     background-color: #505050;
     width: 100%;
@@ -270,6 +256,8 @@ body {
         font-size: 17px; }
         body #fh-contact-wrapper .container address .fh-offset {
           padding-left: 22px; }
+      body #fh-contact-wrapper .container span:last-child {
+        margin-bottom: 30px; }
       body #fh-contact-wrapper .container .fh-social-btn {
         font-size: 25px;
         text-decoration: none;
@@ -277,16 +265,6 @@ body {
         body #fh-contact-wrapper .container .fh-social-btn:hover {
           color: #6a8db3; }
 
-/**
-@media (max-width: 768px) {
-    .fh-portfolio-plus {
-        font-size: 20px;
-    }
-    .fh-portfolio-description {
-        font-size: 10px;
-    }
-}
-**/
 @media (max-width: 700px) {
   .fh-portfolio-overlay {
     opacity: 1 !important; }
@@ -299,56 +277,34 @@ body {
       font-size: 20px !important; } }
 
 /** media queries **/
-/**@media (max-width: 991px) {
+@media (max-width: 991px) {
   .timeline li .timeline-panel {
-    width: 44%;
-  }
-}
+    width: 44% !important; } }
 
 @media (max-width: 700px) {
-    .timeline {
-        &::before {
-            left: 40px;
-        }
-
-        li {
-            .timeline-panel {
-                width: calc(100% - 90px);
-                width: -moz-calc(100% - 90px);
-                width: -webkit-calc(100% - 90px);
-            }
-
-            > .timeline-panel {
-                float: right;
-
-                &::before {
-                    border-left-width: 0;
-                    border-right-width: 15px;
-                    left: -15px;
-                    right: auto;
-                }
-
-                &::after {
-                    border-left-width: 0;
-                    border-right-width: 14px;
-                    left: -14px;
-                    right: auto;
-                }
-            }
-
-            .timeline-date {
-                width: 140px;
-            }
-
-            > .timeline-date {
-                margin: 0;
-            }
-
-            .tl-circ {
-                top: 22px;
-                left: 22px;
-                margin-left: 0;
-            }
-        }
-    }
-}**/
+  .timeline::before {
+    left: 40px !important; }
+  .timeline li .timeline-panel {
+    width: calc(100% - 90px) !important;
+    width: -moz-calc(100% - 90px) !important;
+    width: -webkit-calc(100% - 90px) !important; }
+  .timeline li > .timeline-panel {
+    float: right !important; }
+    .timeline li > .timeline-panel::before {
+      border-left-width: 0 !important;
+      border-right-width: 15px !important;
+      left: -15px !important;
+      right: auto !important; }
+    .timeline li > .timeline-panel::after {
+      border-left-width: 0 !important;
+      border-right-width: 14px !important;
+      left: -14px !important;
+      right: auto !important; }
+  .timeline li .timeline-date {
+    width: 140px !important; }
+  .timeline li > .timeline-date {
+    margin: 0 !important; }
+  .timeline li .tl-circ {
+    top: 22px !important;
+    left: 22px !important;
+    margin-left: 0 !important; } }
